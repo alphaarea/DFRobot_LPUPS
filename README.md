@@ -1,3 +1,5 @@
+**固定识别为4节模式以便测试**
+
 # DFRobot_LPUPS
 * [中文版](./README_CN.md)
 

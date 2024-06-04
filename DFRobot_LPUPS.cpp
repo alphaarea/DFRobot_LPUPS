@@ -17,21 +17,22 @@ DFRobot_LPUPS::DFRobot_LPUPS()
 
 int DFRobot_LPUPS::begin(uint16_t upsType)
 {
-  _upsType = upsType;
+  _upsType = FOUR_BATTERIES_UPS_PID;
+  // _upsType = upsType;
   uint8_t pidBuf[2];
   if (0 == readReg(CS32_I2C_PID_REG, pidBuf, sizeof(pidBuf)))   // Judge whether the data bus is successful
   {
     DBG("ERR_DATA_BUS");
     return ERR_DATA_BUS;
   }
-
+/* 
   DBG("real sensor id=");DBG(LPUPS_CONCAT_BYTES(pidBuf[1], pidBuf[0]));
   if (_upsType != LPUPS_CONCAT_BYTES(pidBuf[1], pidBuf[0]))   // Judge whether the chip version matches
   {
     DBG("ERR_IC_VERSION");
     return ERR_IC_VERSION;
   }
-
+ */
   DBG("begin ok!");
   return NO_ERR;
 }
